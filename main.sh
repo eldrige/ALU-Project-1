@@ -30,9 +30,6 @@ function option2 {
 
 function option3 {
   echo "You selected option 3."
-  echo "Please enter the student email you want to delete"
-  read email
-    echo "You selected option 3."
     read -p "Enter the email to delete: " email
 
     # Search for the record in the file

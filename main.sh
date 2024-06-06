@@ -6,7 +6,6 @@ echo "Select an option (1-3):"
 echo "1. Add a student"
 echo "2. List all students"
 echo "3. Delete student"
-echo "3. Delete a student"
 read choice
 
 function option1 {

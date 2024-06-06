@@ -1,8 +1,10 @@
 #!/bin/bash
 
-echo "Welcome to Xmen: "
+echo "Welcome to Xmen "
 echo "What do you want to do today? Please select an option"
 echo "Select an option (1-3):"
+echo "1. Add a student"
+echo "2. List all students"
 read choice
 
 function option1 {

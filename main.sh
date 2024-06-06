@@ -5,6 +5,7 @@ echo "What do you want to do today? Please select an option"
 echo "Select an option (1-3):"
 echo "1. Add a student"
 echo "2. List all students"
+echo "3. Delete student"
 read choice
 
 function option1 {
@@ -29,6 +30,8 @@ function option2 {
 
 function option3 {
   echo "You selected option 3."
+  echo "Please enter the student email you want to delete"
+  read email
 }
 
 function default_option {

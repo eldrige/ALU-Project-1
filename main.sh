@@ -30,7 +30,7 @@ function option2 {
 
 function option3 {
     echo "You selected option 3."
-    read -p "Enter the username to delete: " email
+    read -p "Enter the email to delete: " email
 
     # Search for the record in the file
     record=$(grep -i "$email" students-list_1023.txt)

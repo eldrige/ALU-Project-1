@@ -23,6 +23,8 @@ function option1 {
 
 function option2 {
   echo "You selected option 2."
+  echo "List of all students:"
+  cat students-list_1023.txt
 }
 
 function option3 {

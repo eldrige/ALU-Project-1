@@ -13,7 +13,9 @@ function option1 {
   read age
   echo "Please enter the students intake"
   read intake
-  echo "$name, $age, $intake" >> students-list_1023.txt
+  echo "Please enter your email"
+  read email
+  echo "$name, $age, $intake, $email" >> students-list_1023.txt
   echo "Thank you, Your record had been added"
 }
 

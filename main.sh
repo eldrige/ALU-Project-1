@@ -18,7 +18,7 @@ function option1 {
   echo "Please enter your email"
   read email
   echo "$name, $age, $intake, $email" >> students-list_1023.txt
-  echo "Thank you, Your record had been added"
+  echo "Thank you, $name have been added to the record"
 }
 
 function option2 {

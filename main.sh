@@ -6,6 +6,7 @@ echo "Select an option (1-3):"
 echo "1. Add a student"
 echo "2. List all students"
 echo "3. Delete student"
+echo "5. Exit the application"
 read choice
 
 function option1 {
@@ -52,6 +53,12 @@ function option3 {
     fi
 }
 
+function option5 {
+  echo "You selected option 5."
+  echo "You are exiting, Good Bye"
+  exit
+}
+
 function default_option {
     echo "Invalid option selected...Please start again"
 }
@@ -66,6 +73,10 @@ case $choice in
     3)
         option3
         ;;
+    5)
+        option5
+        ;;
+
     *)
         default_option
         ;;

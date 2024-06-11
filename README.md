@@ -1,1 +1,8 @@
-This document documents the documentaion of these various documents.
+//////////////////////////////////ALU PROJECT DOCUMENTATION///////////////////////////////
+//                                                                                      //
+//                                        WELCOME                                       //
+//                                                                                      //
+//////////////////////////////////////////////////////////////////////////////////////////
+
+:X
+

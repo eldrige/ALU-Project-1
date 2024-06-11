@@ -7,5 +7,6 @@ Ewing Singa, 18, Jan 224, e.singasara@alustudent.com
 Wakhile Dlamini, 22, Jan 24, mzwakheken@gmail.com
 joyce, 30, jan 24, joyce@gmail.com
 55B535E1-E8DA-4916-9269-B261201538B5, Noel, 15, Sep 26, f@gmail.com
-, Modestine, 30, January 2024, modestine@gmail.com
-, victor, 45, jan 2024, victor@gmail.com
+Modestine, 30, January 2024, modestine@gmail.com
+victor, 45, jan 2024, victor@gmail.com
+Barack, 50, Jan 2022, b.obama@gmail.com

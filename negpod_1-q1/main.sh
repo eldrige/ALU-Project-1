@@ -36,25 +36,25 @@ function option2 {
 
 function option3 {
     echo "You selected option 3."
-    read -p "Enter the email to delete: " email
+    read -p "Enter the ID to delete: " unique_id
 
     # Search for the record in the file
-    record=$(grep -i "$email" students-list_1023.txt)
+    record=$(grep -i "$unique_id" students-list_1023.txt)
 
     # Check if a record was found
     if [ -n "$record" ]; then
         # Prompt the user to confirm the deletion
-        read -p "Are you sure you want to delete the record for '$email'? (y/n) " confirm
+        read -p "Are you sure you want to delete the record for '$unique_id'? (y/n) " confirm
 
         # Delete the record if the user confirms
         if [ "$confirm" = "y" ]; then
-            grep -v "$email" students-list_1023.txt >temp_file.txt
+            grep -v "$unique_id" students-list_1023.txt >temp_file.txt
             mv temp_file.txt students-list_1023.txt
         else
             echo "Deletion cancelled."
         fi
     else
-        echo "No record found for '$email'."
+        echo "No record found for '$unique_id'."
     fi
 }
 

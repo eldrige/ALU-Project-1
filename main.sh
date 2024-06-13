@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bah
 
 echo "Welcome to Xmen"
 echo "What do you want to do today? Please select an option"
@@ -12,6 +12,9 @@ read choice
 
 function option1 {
     unique_id=$(uuidgen)
+    # Example usage
+    short_id=$(generate_short_id 8)
+    echo "Short ID: $short_id"
     echo "Hello, You have chosen option 1!"
     echo "Please enter the student's name"
     read name
@@ -31,10 +34,6 @@ generate_short_id() {
     local characters=$(tr -dc 'a-zA-Z0-9' < /dev/urandom | fold -w $length | head -n 1)
     echo "$characters"
 }
-
-# Example usage
-short_id=$(generate_short_id 8)
-echo "Short ID: $short_id"
 
 function option2 {
     echo "You selected option 2."

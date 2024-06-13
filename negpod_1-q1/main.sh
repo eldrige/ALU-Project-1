@@ -14,7 +14,8 @@ read choice
 STUDENTS_FILE="students-list_1023.txt"
 
 function option1 {
-    unique_id=$(uuidgen)
+    # unique_id=$(uuidgen)
+    unique_id=$(openssl rand -hex 8)
     echo "Hello, You have chosen option 1!"
     echo "Please enter the student's name"
     read name

@@ -31,7 +31,13 @@ function option1 {
 function option2 {
     echo "You selected option 2."
     echo "List of all students:"
-    cat students-list_1023.txt
+    echo "---------------------"
+
+    # Display the contents of the students-list_1023.txt file
+    # with line numbers for better readability
+    cat -n students-list_1023.txt
+
+    echo "---------------------"
 }
 
 function option3 {

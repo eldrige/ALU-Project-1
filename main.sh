@@ -25,6 +25,17 @@ function option1 {
     echo "Thank you, $name, $age, $intake, $email have been added to the record with unique ID $unique_id"
 }
 
+# Function to generate a short ID
+generate_short_id() {
+    local length=$1
+    local characters=$(tr -dc 'a-zA-Z0-9' < /dev/urandom | fold -w $length | head -n 1)
+    echo "$characters"
+}
+
+# Example usage
+short_id=$(generate_short_id 8)
+echo "Short ID: $short_id"
+
 function option2 {
     echo "You selected option 2."
     echo "List of all students:"

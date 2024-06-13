@@ -62,57 +62,45 @@ function option3 {
     fi
 }
 
-# this line of code update a single student record 
-function option4() {
-    echo "Enter the student ID to update:"
-    read student_id_to_update
+find_student() {
+    local id="$1"
+    local line=$(grep -m 1 "^$id" "$STUDENTS_FILE")
+    echo "$line"
+}
 
-    # Check if the student record exists
-    if ! grep -q "$student_id_to_update" "$STUDENTS_FILE"; then
-        echo "Student record not found."
-        return
+# Function to update a student's information
+update_student() {
+    read -p "Enter the student ID to update: " id
+
+    local line=$(find_student "$id")
+    if [ -z "$line" ]; then
+        echo "Student with ID $id not found."
+        return 1
     fi
 
-    # Retrieve the current values for the student
-    current_record=$(grep "$student_id_to_update" "$STUDENTS_FILE")
-    IFS=',' read -r current_email current_age current_student_id <<<"$current_record"
+    local currentName=$(echo "$line" | cut -d, -f2)
+    local currentDob=$(echo "$line" | cut -d, -f3)
+    local currentGradYear=$(echo "$line" | cut -d, -f4)
+    local currentEmail=$(echo "$line" | cut -d, -f5)
 
-    echo "Current email: $current_email"
-    echo "Current age: $current_age"
+    echo "Current student information:"
+    echo "Name: $currentName"
+    echo "Date of Birth: $currentDob"
+    echo "Graduation Year: $currentGradYear"
+    echo "Email: $currentEmail"
 
-    echo "Enter new email (leave blank to keep current):"
-    read new_email
-    echo "Enter new age (leave blank to keep current):"
-    read new_age
+    read -p "Enter new name (leave blank to keep current): " newName
+    read -p "Enter new date of birth (leave blank to keep current): " newDob
+    read -p "Enter new graduation year (leave blank to keep current): " newGradYear
+    read -p "Enter new email (leave blank to keep current): " newEmail
 
-    # Use the new values if provided, otherwise keep the current values
-    if [ -n "$new_email" ]; then
-        updated_email="$new_email"
-    else
-        updated_email="$current_email"
-    fi
-
-    if [ -n "$new_age" ]; then
-        updated_age="$new_age"
-    else
-        updated_age="$current_age"
-    fi
-
-    # Create a temporary file to store the updated list
-    temp_file=$(mktemp)
-
-    # Update the record with the new data
-    while IFS=',' read -r email age student_id; do
-        if [ "$student_id" == "$student_id_to_update" ]; then
-            echo "$updated_email,$updated_age,$student_id" >>"$temp_file"
-        else
-            echo "$email,$age,$student_id" >>"$temp_file"
-        fi
-    done <"$STUDENTS_FILE"
-
-    # Overwrite the original file with the updated list
-    mv "$temp_file" "$STUDENTS_FILE"
-    echo "Student record updated successfully."
+    local newName="${newName:-$currentName}"
+    local newDob="${newDob:-$currentDob}"
+    local newGradYear="${newGradYear:-$currentGradYear}"
+    local newEmail="${newEmail:-$currentEmail}"
+    local newLine="$id, $newName, $newDob, $newGradYear, $newEmail"
+    sed -i "" "s/^$id.*/$newLine/" $STUDENTS_FILE
+    echo "Student with ID $id updated."
 }
 
 function option5 {
@@ -136,7 +124,7 @@ case $choice in
     option3
     ;;
 4)
-    option4
+    update_student
     ;;
 5)
     option5

@@ -34,7 +34,9 @@ function option1 {
 function option2 {
     echo "You selected option 2."
     echo "List of all students:"
-    cat students-list_1023.txt
+    echo "----------------------"
+    cat -n students-list_1023.txt
+    echo "----------------------"
 }
 
 # This lines of Codes Delete a student in our record with the use of their ID

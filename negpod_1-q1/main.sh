@@ -13,6 +13,7 @@ read choice
 # Constants
 STUDENTS_FILE="students-list_1023.txt"
 
+# This line of codes create a student and a Unique ID that will be generated for each student
 function option1 {
     # unique_id=$(uuidgen)
     unique_id=$(openssl rand -hex 8)
@@ -29,12 +30,14 @@ function option1 {
     echo "Thank you, $name, $age, $intake, $email have been added to the record with unique ID $unique_id"
 }
 
+# This lines of Codes list out all students that we have in our records
 function option2 {
     echo "You selected option 2."
     echo "List of all students:"
     cat students-list_1023.txt
 }
 
+# This lines of Codes Delete a student in our record with the use of their ID
 function option3 {
     echo "You selected option 3."
     read -p "Enter the ID to delete: " unique_id
@@ -59,6 +62,7 @@ function option3 {
     fi
 }
 
+# this line of code update a single student record 
 function option4() {
     echo "Enter the student ID to update:"
     read student_id_to_update
